@@ -43,8 +43,6 @@ Usuario de prueba: admin@nutricion.com
 Contraseña: admin  
 
 📞 Contacto
-Desarrollador: Fernando Aldavera  
-Email: fernando@utng.edu.mx  
-Profesor: [Nombre del profesor]
+Email: 1224100597.fmoj@gmail.co
 
 Proyecto desarrollado para la materia Desarrollo de Software Multiplataforma - Gestión de Consultorios Nutricionales
