@@ -5,7 +5,7 @@ Universidad: UTNG
 Fecha: Febrero 2026
 
 📸 Capturas de Pantalla
-[![Login](screenshots/login.png)](screenshots/login.png)
+[![Login](login.png)](login.png)
 [![Pantalla Nutrióloga](screenshots/dashboard.png)](screenshots/dashboard.png)
 [![Pantalla Pacientes](screenshots/pacientes.png)](screenshots/pacientes.png)
 
