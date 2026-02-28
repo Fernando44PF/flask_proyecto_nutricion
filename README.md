@@ -5,7 +5,9 @@ Universidad: UTNG
 Fecha: Febrero 2026
 
 📸 Capturas de Pantalla
-Login Dashboard Gestión de Pacientes Gestión de Consultas Gestión de Planes Nutricionales
+[![Login](screenshots/login.png)](screenshots/login.png)
+[![Pantalla Nutrióloga](screenshots/dashboard.png)](screenshots/dashboard.png)
+[![Pantalla Pacientes](screenshots/pacientes.png)](screenshots/pacientes.png)
 
 🎯 Características Principales
 Registro y autenticación segura de usuarios
@@ -18,8 +20,7 @@ Dashboard centralizado con estadísticas y navegación intuitiva
 📱 Tecnologías Usadas
 Python 3.x
 Flask
-HTML / CSS / Bootstrap
-JavaScript
+HTML / CSS / JavaScript
 Git / GitHub
 
 🚀 Cómo Instalar
@@ -39,7 +40,7 @@ Git / GitHub
 
 👥 Prueba la App
 Usuario de prueba: admin@nutricion.com  
-Contraseña: Test12345  
+Contraseña: admin  
 
 📞 Contacto
 Desarrollador: Fernando Aldavera  
