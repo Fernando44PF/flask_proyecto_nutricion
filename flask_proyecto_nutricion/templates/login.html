@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login | Gestión de Nutrición</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+
+   <div class="container">
+      <div class="card">
+         <h2>🥗 Gestión de Nutrición</h2>
+         <p class="subtitle">Inicia sesión para continuar</p>
+
+         <form method="post">
+            <input type="text" name="usuario" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+
+            <button type="submit">Ingresar</button>
+         </form>
+
+         <p class="registro">
+            ¿No tienes cuenta?
+            <a href="{{ url_for('registro') }}">Regístrate aquí</a>
+         </p>
+      </div>
+   </div>
+
+   <a href="{{ url_for('youtube.youtube_api') }}">
+    <button>Ir a YouTube API</button>
+</a>
+
+
+</body>
+</html>

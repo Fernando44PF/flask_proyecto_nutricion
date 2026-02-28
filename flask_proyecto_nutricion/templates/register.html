@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Registro | Gestión de Nutrición</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-page">
+
+   <div class="container">
+      <div class="card">
+         <h2>🥗 Registro de Usuario</h2>
+         <p class="subtitle">Crea tu cuenta para comenzar</p>
+
+         <form method="post">
+            <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+
+            <button type="submit">Registrarse</button>
+         </form>
+
+         <p class="registro">
+            ¿Ya tienes cuenta?
+            <a href="{{ url_for('login') }}">Inicia sesión</a>
+         </p>
+      </div>
+   </div>
+
+</body>
+</html>

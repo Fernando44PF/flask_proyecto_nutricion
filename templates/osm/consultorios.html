@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1><i class="bi bi-map"></i> Mapas con OpenStreetMap</h1>
+        <p class="lead">Explora lugares de interés para tu salud y nutrición usando mapas libres y colaborativos [citation:5]</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-geo-alt text-primary" style="font-size: 3rem;"></i>
+                <h5 class="card-title mt-3">Geocodificación</h5>
+                <p class="card-text">Convierte direcciones en coordenadas y viceversa usando Nominatim [citation:2]</p>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#geocodeModal">
+                    Probar
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-hospital text-success" style="font-size: 3rem;"></i>
+                <h5 class="card-title mt-3">Consultorios</h5>
+                <p class="card-text">Encuentra consultorios de nutrición registrados cerca de ti</p>
+                <a href="{{ url_for('osm.consultorios') }}" class="btn btn-success">
+                    Ver Consultorios
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-shop text-warning" style="font-size: 3rem;"></i>
+                <h5 class="card-title mt-3">Lugares Saludables</h5>
+                <p class="card-text">Descubre tiendas orgánicas, gimnasios y parques cercanos</p>
+                <a href="{{ url_for('osm.lugares_saludables') }}" class="btn btn-warning">
+                    Explorar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de geocodificación -->
+<div class="modal fade" id="geocodeModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Geocodificación con Nominatim</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="address" class="form-label">Dirección:</label>
+                    <input type="text" class="form-control" id="address" placeholder="Ej: Av. Reforma 123, CDMX">
+                </div>
+                <button class="btn btn-primary" onclick="geocodeAddress()">Buscar</button>
+                <div id="geocodeResult" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function geocodeAddress() {
+    const address = document.getElementById('address').value;
+    const resultDiv = document.getElementById('geocodeResult');
+    
+    if (!address) {
+        resultDiv.innerHTML = '<div class="alert alert-warning">Ingresa una dirección</div>';
+        return;
+    }
+    
+    resultDiv.innerHTML = '<div class="text-center"><div class="spinner-border text-primary"></div></div>';
+    
+    fetch('/osm/api/geocode', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ address: address })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            resultDiv.innerHTML = `
+                <div class="alert alert-success">
+                    <strong>Coordenadas:</strong><br>
+                    Latitud: ${data.result.lat}<br>
+                    Longitud: ${data.result.lon}<br>
+                    <strong>Dirección:</strong> ${data.result.direccion_completa}
+                </div>
+            `;
+        } else {
+            resultDiv.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
+        }
+    })
+    .catch(error => {
+        resultDiv.innerHTML = `<div class="alert alert-danger">Error: ${error}</div>`;
+    });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Menú | Gestión de Nutrición</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="menu-page">
+
+   <div class="menu-container">
+
+      <h2>🥗 Gestión de Nutrición</h2>
+      <p class="subtitle">
+         Bienvenido, <strong>{{ session.usuario }}</strong>
+      </p>
+
+      <div class="menu-grid">
+
+         <a href="{{ url_for('dashboard') }}" class="menu-card">
+            <h3>Pacientes</h3>
+            <p>Registrar y gestionar pacientes</p>
+         </a>
+
+         <!-- <a href="{{ url_for('dashboard') }}" class="menu-card">
+            <h3>📊 Dashboard</h3>
+            <p>Ver información general</p>
+         </a> -->
+
+         <!-- <div class="menu-card disabled">
+            <h3>📄 Reportes</h3>
+            <p>Próximamente</p>
+         </div> -->
+
+         <a href="{{ url_for('logout') }}" class="menu-card logout-card">
+            <h3>Cerrar sesión</h3>
+            <p>Salir del sistema</p>
+         </a>
+
+      </div>
+
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tienda API</title>
+  </head>
+  <body>
+    <h1>Lista de Productos</h1>
+    <ul id="lista"></ul>
+
+    <script>
+      fetch("http://localhost:5000/api/paciente")
+        .then((response) => response.json())
+        .then((data) => {
+          const lista = document.getElementById("lista");
+          data.forEach((paciente) => {
+            const li = document.createElement("li");
+            li.textContent =
+              paciente.nombre +
+              " - $" +
+              paciente.apellido +
+              " (Stock: " +
+              paciente.sexo +
+              ")";
+            lista.appendChild(li);
+          });
+        });
+    </script>
+  </body>
+</html>
