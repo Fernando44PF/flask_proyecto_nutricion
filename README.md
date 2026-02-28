@@ -5,9 +5,9 @@ Universidad: UTNG
 Fecha: Febrero 2026
 
 📸 Capturas de Pantalla
-[![Login](login.png)]
-[![Pantalla Nutrióloga](screenshots/dashboard.png)](screenshots/dashboard.png)
-[![Pantalla Pacientes](screenshots/pacientes.png)](screenshots/pacientes.png)
+[![Login](login.png)
+[![Pantalla Nutrióloga](nutriologa.png)](nutriologa.png)
+[![Pantalla Pacientes](pacientes.png)](pacientes.png)
 
 🎯 Características Principales
 Registro y autenticación segura de usuarios
